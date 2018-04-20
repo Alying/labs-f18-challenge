@@ -11,7 +11,7 @@ def index():
 @app.route('/pokemon/<id_or_name>')
 def pokemon(id_or_name):
 	try:
-		print int(id_or_name)
+		int(id_or_name)
 		return "You found a " + requests.get('https://pokeapi.co/api/v2/pokemon/' + id_or_name).json()['name'] + "!"
 	except ValueError:
 		return "The ID number is: "+ str(requests.get('https://pokeapi.co/api/v2/pokemon/' + id_or_name).json()['id'])
